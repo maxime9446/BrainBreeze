@@ -15,6 +15,5 @@ Develop a simple, intuitive web application for taking, editing, deleting and co
 #### Display Notes : List all existing notes.
 #### Edit Notes: Open an existing note for editing.
 #### Delete Notes: Delete unnecessary notes.
-#### Development steps
 
 
