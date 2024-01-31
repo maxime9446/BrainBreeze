@@ -39,6 +39,6 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{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}}
         BRANCH: gh-pages # La branche sur laquelle le déploiement sera effectué
         FOLDER: dist # Le dossier à déployer, assurez-vous que c'est le dossier de build de votre projet Vue.js
