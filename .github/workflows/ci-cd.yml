@@ -33,12 +33,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      # Ajoutez ici les étapes pour déployer votre application, par exemple sur GitHub Pages, AWS, Firebase, etc.
-      # Par exemple, pour déployer sur GitHub Pages :
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          GITHUB_TOKEN: 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
-          BRANCH: main # La branche sur laquelle le déploiement sera effectué
-          FOLDER: src # Le dossier à déployer, assurez-vous que c'est le dossier de build de votre projet Vue.js
