@@ -41,4 +41,4 @@ jobs:
       with:
         GITHUB_TOKEN: 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
         BRANCH: main # La branche sur laquelle le déploiement sera effectué
-        FOLDER: dist # Le dossier à déployer, assurez-vous que c'est le dossier de build de votre projet Vue.js
+        FOLDER: src # Le dossier à déployer, assurez-vous que c'est le dossier de build de votre projet Vue.js
