@@ -1,0 +1,44 @@
+name: CI/CD Workflow
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14' # Utilisez la version de Node.js que votre projet requiert
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Run Lint
+      run: npm run lint
+
+    - name: Run Tests
+      run: npm run test
+
+    - name: Build
+      run: npm run build
+
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    # Ajoutez ici les étapes pour déployer votre application, par exemple sur GitHub Pages, AWS, Firebase, etc.
+    # Par exemple, pour déployer sur GitHub Pages :
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages # La branche sur laquelle le déploiement sera effectué
+        FOLDER: dist # Le dossier à déployer, assurez-vous que c'est le dossier de build de votre projet Vue.js
