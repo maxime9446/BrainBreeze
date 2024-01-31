@@ -28,12 +28,17 @@ jobs:
       - name: Build
         run: npm run build
 
-  deployment:
+  deploy:
+    needs: build-and-test
     runs-on: ubuntu-latest
-    needs: [ linting, unit_tests, build_and_test ]
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v2
 
-      - name: Deployment
-        run: ./deploy.sh
+      # Ajoutez ici les étapes pour déployer votre application, par exemple sur GitHub Pages, AWS, Firebase, etc.
+      # Par exemple, pour déployer sur GitHub Pages :
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: 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
+          BRANCH: main # La branche sur laquelle le déploiement sera effectué
+          FOLDER: src # Le dossier à déployer, assurez-vous que c'est le dossier de build de votre projet Vue.js
